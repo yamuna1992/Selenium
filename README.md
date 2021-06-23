@@ -1,2 +1,0 @@
-# Selenium
-ClassRoom Exe / Assignments
