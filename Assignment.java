@@ -64,12 +64,11 @@ public class Assignment {
 		WebElement Webelesource = driver.findElement(By.id("createLeadForm_dataSourceId"));
 		Select drpDown = new Select(Webelesource);
 		drpDown.selectByValue("LEAD_CONFERENCE");
-		
-		// Step12: Fill all the field (Marketing Campaign)	
+
+		// Step12: Fill all the field (Marketing Campaign)
 		WebElement Webelesource0 = driver.findElement(By.id("createLeadForm_marketingCampaignId"));
 		Select drpDown0 = new Select(Webelesource0);
 		drpDown0.selectByValue("CATRQ_AUTOMOBILE");
-		
 
 		// Step12: Fill all the field (First Name)
 		driver.findElement(By.id("createLeadForm_firstNameLocal")).sendKeys("Yamuna");
@@ -172,29 +171,31 @@ public class Assignment {
 		WebElement Webelesource5 = driver.findElement(By.id("createLeadForm_generalCountryGeoId"));
 		Select drpDown5 = new Select(Webelesource5);
 		drpDown5.selectByValue("IND");
-		
+
 		// Step12: Fill all the field (Postal Code EXT)
 		driver.findElement(By.id("createLeadForm_generalPostalCodeExt")).sendKeys("044");
-	
+
 		// Step13: Click CreateLead button
 		driver.findElement(By.className("smallSubmit")).click();
-		
+
 		// Step14: Click Duplicate
 		driver.findElementByLinkText("Duplicate Lead").click();
-		
-		//Clear the Existing Company name And Enter the New Company name
-		 WebElement Company = driver.findElement(By.id("createLeadForm_companyName"));	
-		 Select cpmname = new Select(Company);
-		 cpmname.selectByValue("Megatrends");
-		 
-		// if cpmname.equals(Company)
-		 //{
-		  //	 driver.findElement(By.id("createLeadForm_companyName")).sendKeys("AZeeta"); 
-		  //}
-		 
-		 
-	
-		
+
+		// Clear the Existing Company name And Enter the New Company name
+		String CmpnyNameOrg = "TestLeaf";
+		WebElement Company = driver.findElement(By.id("createLeadForm_companyName"));
+		Company.clear();
+		Company.sendKeys(CmpnyNameOrg);
+
+		// Click CreateLeadButton
+		driver.findElement(By.className("smallSubmit")).click();
+
+		// Step 17: Get the Company Name
+		String cmpnyName = driver.findElement(By.id("viewLead_companyName_sp")).getText();
+		System.out.println(" cmpnyName:" + cmpnyName);
+
+		// Close the Browser
+		driver.quit();
 
 	}
 
